@@ -1,0 +1,34 @@
+// C++ code
+//
+#include <Adafruit_LiquidCrystal.h>
+
+#include "Adafruit_LEDBackpack.h"
+
+int TEMP = 0;
+
+Adafruit_LiquidCrystal lcd_1(0);
+
+Adafruit_7segment led_display1 = Adafruit_7segment();
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  Serial.begin(9600);
+  lcd_1.begin(16, 2);
+  led_display1.begin(112);
+}
+
+void loop()
+{
+  TEMP = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -20, 120);
+  Serial.println(TEMP);
+  led_display1.println("Temp. Monitr. system");
+  led_display1.writeDisplay();
+  lcd_1.setCursor(0, 1);
+  lcd_1.print("temp value=");
+  lcd_1.setCursor(12, 1);
+  lcd_1.print(TEMP);
+
+  lcd_1.setCursor(0, 0);
+  delay(10); // Delay a little bit to improve simulation performance
+}
