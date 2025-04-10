@@ -1,3 +1,6 @@
+
+TASK 3- TEMPERATURE MONITORING SYSTEM 
+
 This project implements a **temperature monitoring system** using Arduino in an embedded system. The system measures the ambient temperature using a sensor (e.g., LM35 or DHT11) and displays the readings on an LCD or Serial Monitor. This project is simulated in **TinkerCAD**, allowing users to visualize the circuit and its functionality.
 
 ## Features
